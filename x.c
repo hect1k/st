@@ -2298,12 +2298,6 @@ kpress(XEvent *ev)
 	} else {
 		len = XLookupString(e, buf, sizeof buf, &ksym, NULL);
 	}
-        /* 0. highlight URLs when control held */
-	if (ksym == XK_Control_L) {
-		highlighturls();
-	} else if (ev->type == KeyRelease && e->keycode == XKeysymToKeycode(e->display, XK_Control_L)) {
-		unhighlighturls();
-	}
 
 	/* KeyRelease not relevant to shortcuts */
 	if (ev->type == KeyRelease)
